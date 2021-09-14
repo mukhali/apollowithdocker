@@ -1,0 +1,105 @@
+{
+	"name": "ApolloAuto",
+	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
+	"dockerComposeFile": "docker-compose.yml",
+
+	// The 'service' property is the name of the service for the container that VS Code should
+	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+	"service": "auto",
+
+	// The optional 'workspaceFolder' property is the path VS Code should open by default when
+	// connected. This is typically a volume mount in .devcontainer/docker-compose.yml
+	"workspaceFolder": "/opt/workspace",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		// "terminal.integrated.shell.linux": "/bin/bash",
+		"terminal.integrated.inheritEnv": true,
+ 		"python.defaultInterpreterPath": "/usr/bin/python3",
+                "python.languageServer": "Pylance",
+		"C_Cpp.intelliSenseEngine": "Default",
+		"code-runner.executorMap": {
+			"javascript": "node",
+			"java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+			"c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+			"cpp": "cd $dir && clang++ $fileName -o $fileNameWithoutExt -std=c++2a -lpthread && $dir$fileNameWithoutExt",
+			"objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+			"php": "php",
+			"python": "python -u",
+			"perl": "perl",
+			"perl6": "perl6",
+			"ruby": "ruby",
+			"go": "go run",
+			"lua": "lua",
+			"groovy": "groovy",
+			"powershell": "powershell -ExecutionPolicy ByPass -File",
+			"bat": "cmd /c",
+			"shellscript": "bash",
+			"fsharp": "fsi",
+			"csharp": "scriptcs",
+			"vbscript": "cscript //Nologo",
+			"typescript": "ts-node",
+			"coffeescript": "coffee",
+			"scala": "scala",
+			"swift": "swift",
+			"julia": "julia",
+			"crystal": "crystal",
+			"ocaml": "ocaml",
+			"r": "Rscript",
+			"applescript": "osascript",
+			"clojure": "lein exec",
+			"haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+			"rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+			"racket": "racket",
+			"scheme": "csi -script",
+			"ahk": "autohotkey",
+			"autoit": "autoit3",
+			"dart": "dart",
+			"pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+			"d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+			"haskell": "runhaskell",
+			"nim": "nim compile --verbosity:0 --hints:off --run",
+			"lisp": "sbcl --script",
+			"kit": "kitc --run",
+			"v": "v run",
+			"sass": "sass --style expanded",
+			"scss": "scss --style expanded",
+			"less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+			"FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+			"fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+			"fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+			"fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+		},
+		"code-runner.clearPreviousOutput": true,
+		"code-runner.enableAppInsights": false,
+		"code-runner.runInTerminal": true,
+	},
+	
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-toolsai.jupyter",
+		"ms-python.vscode-pylance",
+		"ms-python.python",
+		"twxs.cmake",
+		"ms-vscode.cmake-tools",
+		"ms-vscode.cpptools",
+		"visualstudioexptteam.vscodeintellicode",
+		"eamodio.gitlens",
+		"lextudio.restructuredtext",
+		"rti.omg-idl",
+		"redhat.vscode-yaml",
+		"formulahendry.code-runner",
+		"ms-toolsai.jupyter-keymap"
+	],
+
+	// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+	"shutdownAction": "none", // "stopCompose"
+	
+	// Uncomment the next line to use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "bash scripts/install-dev-tools.sh",
+	// "postStartCommand": "source /opt/ros/$ROS_DISTRO/setup.bash",
+	// "postAttachCommand": ["bash", "source /opt/ros/foxy/setup.bash"],
+
+	// Comment out connect as root instead. To add a non-root user, see: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "root"
+}

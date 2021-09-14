@@ -1,0 +1,29 @@
+version: "3.3"
+services:
+     auto:
+          image: apolloauto/apollo:standalone-edu-x86_64-18.04-6.1-latest
+          container_name: apollo
+          environment: 
+               - DISPLAY=$DISPLAY
+               - QT_X11_NO_MITSHM=1
+               - TIMEZONE=Asia/Shanghai
+          hostname: apollo
+          command: /bin/sh -c "while sleep 1000; do :; done"
+          cap_add:
+               - SYS_PTRACE
+          security_opt:
+               - seccomp:unconfined
+          volumes:
+               - /tmp/.X11-unix:/tmp/.X11-unix:rw
+               - /etc/localtime:/etc/localtime:ro
+               # - /etc/hosts:/etc/hosts:ro
+               # - /etc/ssh/ssh_known_hosts:/etc/ssh/ssh_known_hosts:ro
+               # - /var/run/docker.sock:/var/run/docker.sock:rw
+               - ..:/opt/workspace:cached
+          ports:
+               - "8888:8888"
+          dns:
+               - 8.8.8.8
+               - 114.114.114.114
+
+
